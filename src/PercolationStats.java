@@ -28,7 +28,7 @@ public class PercolationStats {
 		return new PercolationUF(size,perc);
 	}
 	
-	PercolationStats(int N, int T){
+	public PercolationStats(int N, int T){
 		if (N<=0 || T<=0) throw new IllegalArgumentException();
 		ArrayList<int[]> myList = new ArrayList<int[]>();
 		for (int i=0; i<N; i++) {
