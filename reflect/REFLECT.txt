@@ -1,7 +1,9 @@
-Name: [firstname lastname]
-NetID: [abc123]
-Hours Spent: [Give an exact (decimal) number here]
-Consulted With: [Provide names or NetIDs of any students, TAs, or professors you consulted with on the assignment. If you did not consult with anyone, you must explicitly write NONE.]
-Resources Used: [Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE]
-Difficulty level: [Given an integer between 1 (Very Easy) to 10 (Extremely Difficult)]
-Impressions: [Your answer here]
+Name: [Brooke Erickson]
+NetID: [bce14]
+Hours Spent: [10]
+Consulted With: [Amanda Ster, UTA's in office hours]
+Resources Used: [stackoverflow]
+Difficulty level: [6]
+Impressions: [This Assignment was slightly difficult but I liked it more than the other 
+recent assignments. After attending office hours, I was able to understand the point of
+the assignment and able to write the code on my own.]
