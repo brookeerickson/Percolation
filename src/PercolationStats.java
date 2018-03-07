@@ -14,9 +14,9 @@ import java.util.*;
 public class PercolationStats {
 	public static int RANDOM_SEED = 1234;
 	public static Random ourRandom = new Random(RANDOM_SEED);
-	public double myOpenNum;
-	public double[] myOpen;
-	public IUnionFind perc;
+	private double myOpenNum;
+	private double[] myOpen;
+	private IUnionFind perc;
 //	public double mean;
 //	public double stddev;
 //	public double confidenceLow;
@@ -29,6 +29,7 @@ public class PercolationStats {
 	}
 	
 	PercolationStats(int N, int T){
+		if (N<=0 || T<=0) throw new IllegalArgumentException();
 		ArrayList<int[]> myList = new ArrayList<int[]>();
 		for (int i=0; i<N; i++) {
 			for (int j=0; j<N; j++) {
@@ -57,11 +58,11 @@ public class PercolationStats {
 	   }
 	
 	public double confidenceLow() {
-		return (mean() - 1.96*stddev())/Math.sqrt(myOpen.length);
+		return mean() - (1.96*stddev())/Math.sqrt(myOpen.length);
 	}
 	
 	public double confidenceHigh() {
-		return (mean() + 1.96*stddev())/Math.sqrt(myOpen.length);
+		return mean() + (1.96*stddev())/Math.sqrt(myOpen.length);
 	}
 	
 	public static void main(String[] args) {

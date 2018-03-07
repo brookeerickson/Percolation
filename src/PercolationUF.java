@@ -37,7 +37,7 @@ public PercolationUF(int size, IUnionFind newFinder) {
 			myGrid[i][j] = false;}}
 	myFinder.initialize((size*size)+2);
 }
-protected void updateOnOpen(int row, int col) {
+private void updateOnOpen(int row, int col) {
 	int a = row-1;
 	int b = row+1;
 	int c = col-1;
@@ -51,7 +51,7 @@ protected void updateOnOpen(int row, int col) {
 	if (inBounds(row,c) && isOpen(row,c)) myFinder.union(getIndex(row,c), num);
 	if (inBounds(row,d) && isOpen(row,d)) myFinder.union(getIndex(row,d), num);}
 
-protected boolean inBounds(int row, int col) {
+private boolean inBounds(int row, int col) {
 	if (row < 0 || row >= myGrid.length) return false;
 	if (col < 0 || col >= myGrid[0].length) return false;
 	return true;
@@ -61,7 +61,7 @@ protected boolean inBounds(int row, int col) {
  * based on row-major ordering of cells in a two-dimensional grid. However,
  * if (row,col) is out-of-bounds, return OUT_BOUNDS.
  */
-public int getIndex(int row, int col) {
+private int getIndex(int row, int col) {
 if (inBounds(row,col)) return (myGrid.length*row)+col;
 return OUT_BOUNDS;
 }
