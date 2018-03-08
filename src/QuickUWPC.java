@@ -1,3 +1,5 @@
+//Brooke Erickson
+
 public class QuickUWPC implements IUnionFind {
     private int[] parent;
     private int[] size;

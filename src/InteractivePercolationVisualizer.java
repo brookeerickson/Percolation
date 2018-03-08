@@ -21,7 +21,7 @@ public class InteractivePercolationVisualizer {
   
     		IPercolate perc = new PercolationDFSFast(N);
         //IPercolate perc = new PercolationUF(N,myfinder); //new PercolationUF(N);
-    		
+    		////////////PercolationStats(N,25);
         System.out.println(N);
 
         // number of sites opened

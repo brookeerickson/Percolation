@@ -14,6 +14,8 @@
  * @author Jeff Forbes
  *
  */
+//Brooke Erickson
+
 
 public class PercolationUF implements IPercolate {
 private final int OUT_BOUNDS = -1;
@@ -111,5 +113,4 @@ private void connect(int row, int col) {
 	if (isOpen(row,c) && inBounds(row,c)) myFinder.union(getIndex(row,c), num);
 	if (isOpen(row,d) && inBounds(row,d)) myFinder.union(getIndex(row,d), num);
 }
-
 }

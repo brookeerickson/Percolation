@@ -10,6 +10,7 @@ import java.util.*;
  * @author Josh Hug
  *  
  */
+//Brooke Erickson
 
 public class PercolationStats {
 	public static int RANDOM_SEED = 1234;
@@ -17,15 +18,11 @@ public class PercolationStats {
 	private double myOpenNum;
 	private double[] myOpen;
 	private IUnionFind perc;
-//	public double mean;
-//	public double stddev;
-//	public double confidenceLow;
-//	public double confidenceHigh;
 	
 	private IPercolate getPercolator(int size) {
-		IUnionFind perc = new QuickUWPC();
+		IUnionFind perc = new QuickFind();
 		perc.initialize(size);
-		return new PercolationUF(size,perc);
+		return new PercolationDFSFast(size);
 	}
 	
 	public PercolationStats(int N, int T){
@@ -66,15 +63,14 @@ public class PercolationStats {
 	}
 	
 	public static void main(String[] args) {
-		PercolationStats ps = new PercolationStats(50,100);
-	    System.out.println(ps.mean());
+//		PercolationStats ps = new PercolationStats(50,100);
+//	    System.out.println(ps.mean());
 //	    ps = new PercolationStats(200,100);
 //	    System.out.println(ps.mean());
-	    double start =  System.nanoTime();
-	    PercolationStats psi = new PercolationStats(100,100);
+		double start =  System.nanoTime();
+	    PercolationStats ps = new PercolationStats(200,100);
 	    double end =  System.nanoTime();
 	    double time =  (end-start)/1e9;
-	    System.out.printf("mean: %1.4f, time: %1.4f\n",psi.mean(),time);
-
+	    System.out.printf("mean: %1.4f, time: %1.4f\n",ps.mean(),time);
 	}
 }

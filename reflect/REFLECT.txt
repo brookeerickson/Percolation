@@ -1,9 +1,132 @@
 Name: [Brooke Erickson]
 NetID: [bce14]
 Hours Spent: [10]
-Consulted With: [Amanda Ster, UTA's in office hours]
+Consulted With: [Amanda Stern, UTA's in office hours]
 Resources Used: [stackoverflow]
 Difficulty level: [6]
 Impressions: [This Assignment was slightly difficult but I liked it more than the other 
 recent assignments. After attending office hours, I was able to understand the point of
 the assignment and able to write the code on my own.]
+
+PercolationDFS with QuickFind
+1.  	N=50: mean: 0.5552, time: 0.3136
+	N=100: mean: 0.5902, time: 2.2820
+	When N is doubled (this means that the total number of cells is multiplied by 4), 
+	the runtime increases by a factor of about 8.
+2. 	T=50: mean: 0.5552, time: 0.1426
+	T=100: mean: 0.5552, time: 0.2717
+	When the number of experiments is doubled, the runtime is also doubled as can be 
+	seen from the runtimes above.
+3.	2N = 8R, 2T=2R
+	(N,T) = 50,50: mean: 0.5976, time: 0.2670
+	(N,T) = 100,50: mean: 0.5902, time: 2.1935
+	(N,T) = 150,50: mean: 0.5993, time: 13.5192
+	(N,T) = 100,100: mean: 0.5902, time: 4.7480
+	(N,T) = 100,300: mean: 0.5902, time: 12.4346
+	When doubling N, runtime increases by a factor of 8 = 2^4/2. When tripling N, runtime 
+	increases by about a factor of about 43 = 3^4/2. When doubling T, runtime also doubles so this
+	is a constant increase in correlation to the factor of T. Therefore, the formula for the 
+	factor of runtime increase = [(N^4)/2]T. Using big-Oh, this is O(N^4T).
+4.	There are 86,400 seconds in one day. for N=50, time=0.5. for N=100, time=5. for N=200, time=50. 
+	To find the N possible in a day, start from N=100 which has time 5 and find the factor increase 
+	from 5 to 86,400 which is 17,280. The factor of T will be one because T does not change.
+	Plugging this into the formula, 17,280=(N^4)/2*(1). Therefore, the factor increase of N will be about 14.
+	Starting at N=100 and increasing by a factor of 14 means that the N for the new grid will be 
+	N=1,400.
+
+PercolationDFSFast with QuickFind
+1.	N=50: mean: 0.5552, time: 0.0345
+	N=100: mean: 0.6017, time: 0.0989
+	When N is doubled (the total number of cells is multiplied by 2^2=4), the runtime
+	increases by a factor of 3.
+2. 	T=50: mean: 0.6017, time: 0.0595
+	T=100: mean: 0.6017, time: 0.1280
+	When the number of experiments is doubled on a constant grid shape, the runtime also
+	doubles (constant increase).
+3. 2N=3R, 2T=2R
+	According to the data below...
+	(N,T) = 50,100: mean: 0.5976, time: 0.1181, mean: 0.5976, time: 0.0965
+	(N,T) = 100,100: mean: 0.5902, time: 0.1822, mean: 0.5902, time: 0.3074
+	(N,T) = 150,100: mean: 0.5993, time: 0.4094, mean: 0.5993, time: 0.3831
+	(N,T) = 200,100: mean: 0.5802, time: 0.5051, mean: 0.5802, time: 0.5280
+	(N,T) = 100,300: mean: 0.5902, time: 0.2643, mean: 0.5902, time: 0.3036
+	The runtimes for this class change the most each time, but the general pattern is described as:
+	When N is doubled, runtime increases by a factor of 3. When N is tripled, runtime increases
+	by a factor of 4. This continues so the factor of runtime increase = N+1. Since the runtime
+	factor is a constant increase in comparison to the increase in T, combine these to get the 
+	formula of runtime increase factor = T(N+1) which using big-Oh gives O(NT).
+4.	There are 86,400 seconds in one day. for T=100: N=50, time=0.1. for N=100, time=0.2. for N=200, time=0.6.
+	To find the N possible in a day, start from N=100 which has time 0.2 and find the factor increase
+	from 0.2 to 86,400 which is 432,000. The factor of T will not change (1). Plug this into the formula
+	432,000 = (1)(N+1) so the factor increase of N is 431,199 which on top of 100 gives a final
+	N=43,119,900
+
+PercolationUF with QuickFind
+1. 	N=50: mean: 0.5552, time: 0.3587
+	N=100: mean: 0.6017, time: 5.5431
+	When N is doubled (the number of squares is multiplied by 2^2=4), the runtime increases
+	by a factor of about 15 or 16. This is much slower than all of the other classes.
+2.	T=50: mean: 0.6017, time: 2.8273
+	T=100: mean: 0.6017, time: 5.2915
+	When the number of experiments is doubled over a constant grid, the runtime also doubles.
+3. 	2N=16R, 2T=2R
+	According to the data below...
+	(N,T) = 50,100: mean: 0.5976, time: 0.3734
+	(N,T) = 150,100: mean: 0.5993, time: 29.6247
+	(N,T) = 100,100: mean: 0.5902, time: 6.1622
+	(N,T) = 200,100: mean: 0.5737, time: 89.2262
+	(N,T) = 200,200: mean: 0.5737, time: 178.9900
+	When 2x N, runtime increases by 16x. When 3x N, runtime increases by about 80x.
+	2^4=16 and 3^4=81 so to find the runtime increase in terms of N, 
+	Runtime Increase = (factor by which N is adjusted)^4.
+	Just as in all other classes, the runtime increases constantly as T increases so to find 
+	the runtime increase in terms of T, RunTime Increase = (factor by which T is adjusted).
+	Combining this information, RuntimeIncrease = (N^4)T
+	O(N^4T)
+4. 	There are 86,400 seconds in one day. for T=100: N=50, time=0.37. for N=100, time=6. for N=200, time=87.
+	To find the N possible in a day, start from N=100 which has time 6 and find the factor increase
+	from 6 to 86,400 which is 14,400. The factor of T will not change (1). Plug this into the formula
+	14,400 = (1)(N^4) so the factor increase of N is about 11 which on top of 100 gives a final
+	N=1,100.
+
+PercolationUF with QuickUWPC
+1.	N=50: mean: 0.5552, time: 0.0802
+	N=100: mean: 0.6017, time: 0.1583
+	When N is doubled (the number of squares is 2^2=4 times), the runtime also increases
+	by a factor of 2. PercolationUF is much faster with QuickUWPC than with QuickFind.
+2. 	T=50: mean: 0.6017, time: 0.0898
+	T=100: mean: 0.6017, time: 0.1798
+	When T is doubled, the runtime also doubles by a factor of 2.
+3. 	2N=2R, 2T=2R
+	According to the data below...
+	(N,T) = 50,50: mean: 0.5976, time: 0.0480
+	(N,T) = 50,100: mean: 0.5976, time: 0.0840
+	(N,T) = 150,100: mean: 0.5993, time: 0.3119
+	(N,T) = 100,100: mean: 0.5902, time: 0.1958
+	(N,T) = 200,100: mean: 0.5802, time: 0.3550
+	As both N and T are doubled, the runtime also doubles. When both N and T are doubled from
+	50,50 to 100,100 the runtime increases by a factor of 4. This is a constant increase in
+	correlation to the increases in N and T so the big-Oh for PercolationUF with QuickUWPC is 
+	O(NT).
+4.	There are 86,400 seconds in one day. for T=100: N=50, time=0.07. for N=100, time=0.16. for N=200, time=0.34.
+	To find the N possible in a day, start from N=100 which has time 0.16 and find the factor increase
+	from 0.16 to 86,400 which is 540,000. The factor of T will not change (1). Plug this into the formula
+	540,000 = (1)(N) so the factor increase of N is about 540,000 which on top of 100 gives a final
+	N=54,000,000.
+
+Summary
+To summarize the above data, the order of speed is (from fastest to slowest):
+PercolationUF with QuickUWPC
+PercolationDFSFast with QuickFind
+PercolationDFS with QuickFind
+PercolationUF with QuickFind
+
+5. PercolationUF vs PercolationDFS memory storage:
+	PercolationUF stores an n*n array of boolean values while PercolationDFS stores an
+	n*n array of int values. As stated in the instructions, an array of n ints uses 4n bytes
+	while an array of n boolean uses n bytes. Since each of these classes uses an array of 
+	length n with each of those arrays represented as a separate array of length n, the total
+	memory of the inner parts should be the [(memory of the inner array)*(n arrays)]+[memory of outer array
+	of length n]. For PercolationUF, this is [n*n]+n=n^2+n. For PercolationDFS, this is [(4n)*n]+4n=4n^2+4n.
+	
+
