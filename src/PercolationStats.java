@@ -20,9 +20,9 @@ public class PercolationStats {
 	private IUnionFind perc;
 	
 	private IPercolate getPercolator(int size) {
-		IUnionFind perc = new QuickFind();
+		IUnionFind perc = new QuickUWPC();
 		perc.initialize(size);
-		return new PercolationDFSFast(size);
+		return new PercolationUF(size,perc);
 	}
 	
 	public PercolationStats(int N, int T){
